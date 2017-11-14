@@ -1,5 +1,7 @@
 package com.jnprogrammer;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -91,6 +93,14 @@ public class MadLibs {
     }
 
     public void setRandomNums() {
+        int num = Math.abs(rand.nextInt() % 100);
+        int index = 0;
+        int[] numberHolder = new int[3];
+        while(index < numberHolder.length){
+            numberHolder[index] = num + index;
+            index++;
+        }
+        randomNums = "not "+ numberHolder[0]+ ", not" + numberHolder[1] + ", but " + numberHolder[2];
     }
 
 
@@ -102,42 +112,56 @@ public class MadLibs {
 
     //enter data
     public void enterName(){
+        System.out.println("Give me a Name");
         setName(scanner.nextLine());
     }
 
     public void enterNoun1(){
+        System.out.println("Give me a Noun");
         setNoun1(scanner.nextLine());
     }
 
     public void enterNoun2(){
+        System.out.println("Give me a second noun");
         setNoun2(scanner.nextLine());
     }
 
     public void enterNoun3(){
+        System.out.println("Give me a third noun");
         setNoun3(scanner.nextLine());
     }
 
     public void enterAdj1(){
+        System.out.println("Give me a Adjective");
         setAdjective1(scanner.nextLine());
     }
 
     public void enterAdj2(){
+        System.out.println("Give me another Adjective");
         setAdjective2(scanner.nextLine());
     }
 
     public void enterAdverb(){
+        System.out.println("Give me a Adverb");
         setAdverb(scanner.nextLine());
     }
 
 
     public void putTogetherStory(){
-       String story = "Jessy and her best friend " + getName() +
-                " went to Lava World today! " +
-                "and they saw a " + getNoun1() + " just as it fell into the lava. " +
-               "and was offered " + getAdjective1() + " to eat " + "Soon after the offered meal Jessy " +
-               "ran " + getAdverb() + "To the closet bathroom, and found " + getNoun2() + "In her surprise " +
-               getRandomNums() + "Ninja's from the hidden lava village attacked " + getAdjective2() + "She used her ninja Jutsu to defeat them " +
-               getNoun3() + ".";
+       String story;
+       int num = Math.abs(rand.nextInt()) % 2;
+       if(num == 0) {
+           story = "Jessy and her best friend " + getName() +
+                   " went to Lava World today! " +
+                   "and they saw a " + getNoun1() + " just as it fell into the lava. " +
+                   "and was offered " + getAdjective1() + " to eat " + "Soon after the offered meal Jessy " +
+                   "ran " + getAdverb() + "To the closet bathroom, and found " + getNoun2() + "In her surprise " +
+                   getRandomNums() + "Ninja's from the hidden lava village attacked " + getAdjective2() + "She used her ninja Jutsu to defeat them " +
+                   getNoun3() + ".";
+       }else{
+           story = "Your fast asleep when at midnight, Naruto brusts through your window of your bedroom yelling " + getName() +
+           "you need to get the " + getNoun1() + " before the moon sets!! " + ;
+       }
         setStory(story);
     }
 
@@ -150,6 +174,7 @@ public class MadLibs {
         enterAdverb();
         enterNoun3();
     }
+
     public static void main(String[] args) {
         MadLibs game = new MadLibs();
         game.printInstructions();
