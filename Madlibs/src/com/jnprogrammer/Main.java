@@ -3,7 +3,7 @@ package com.jnprogrammer;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
+public class MadLibs {
     Scanner scanner = new Scanner(System.in);
     String story;
     String name;
@@ -94,14 +94,42 @@ public class Main {
     }
 
 
+    //print instructions
     public void printInstructions(){
         System.out.printf("Welcome to the MAdLibs Game. If you type in " +
         "Words, we'll give you a story. Start by typing a Name Human.");
     }
 
+    //enter data
     public void enterName(){
-
+        setName(scanner.nextLine());
     }
+
+    public void enterNoun1(){
+        setNoun1(scanner.nextLine());
+    }
+
+    public void enterNoun2(){
+        setNoun2(scanner.nextLine());
+    }
+
+    public void enterNoun3(){
+        setNoun3(scanner.nextLine());
+    }
+
+    public void enterAdj1(){
+        setAdjective1(scanner.nextLine());
+    }
+
+    public void enterAdj2(){
+        setAdjective2(scanner.nextLine());
+    }
+
+    public void enterAdverb(){
+        setAdverb(scanner.nextLine());
+    }
+
+
     public void putTogetherStory(){
        String story = "Jessy and her best friend " + getName() +
                 " went to Lava World today! " +
@@ -112,7 +140,19 @@ public class Main {
                getNoun3() + ".";
         setStory(story);
     }
+
+    public void play(){
+        enterName();
+        enterNoun1();
+        enterAdj1();
+        enterAdj2();
+        enterNoun2();
+        enterAdverb();
+        enterNoun3();
+    }
     public static void main(String[] args) {
+        MadLibs game = new MadLibs();
+        game.printInstructions();
 
     }
 }
