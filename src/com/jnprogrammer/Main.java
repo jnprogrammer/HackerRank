@@ -106,8 +106,8 @@ public class MadLibs {
 
     //print instructions
     public void printInstructions(){
-        System.out.printf("Welcome to the MadLibs Game. If you type in\n" +
-        "Words, we'll give you a story. \n");
+        System.out.printf("Welcome to the MAdLibs Game. If you type in " +
+                "Words, we'll give you a story. Start by typing a Name Human.");
     }
 
     //enter data
@@ -146,23 +146,24 @@ public class MadLibs {
         setAdverb(scanner.nextLine());
     }
 
+
     public void putTogetherStory(){
-       String story;
-       int num = Math.abs(rand.nextInt()) % 2;
-       if(num == 0) {
-           story = "Jessy and her best friend " + getName() +
-                   " went to Lava World today! \n" +
-                   "And they saw a " + getNoun1() + " just as it fell into the lava.\n " +
-                   "And was offered " + getAdjective1() + " to eat " + "Soon after the offered meal Jessy \n" +
-                   "ran " + getAdverb() + "To the closet bathroom, and found " + getNoun2() + "In her surprise \n" +
-                   getRandomNums() + "Ninja's from the hidden lava village attacked " + getAdjective2() + "She used her ninja Jutsu to defeat them \n" +
-                   getNoun3() + ".";
-       }else{
-           story = "Your fast asleep when at midnight, Naruto brusts through your window of your bedroom yelling \n" + getName() +
-           " you need to get the " + getNoun1() + " before the moon sets!!\n " + "Suddenly the " + getNoun2() + " broke into pieces " +
-           "Naruto jumps " + getAdverb() + "Over the " + getNoun3() + " Which melted " + getAdjective2() + " into the floor.\n" + getRandomNums()
-            + " of the pieces " + getAdjective2() + " in the moon light which triggered " + getName() + " hidden power activated and sealed the " + getNoun1();
-       }
+        String story;
+        int num = Math.abs(rand.nextInt()) % 2;
+        if(num == 0) {
+            story = "Jessy and her best friend " + getName() +
+                    " went to Lava World today! " +
+                    "and they saw a " + getNoun1() + " just as it fell into the lava. " +
+                    "and was offered " + getAdjective1() + " to eat " + "Soon after the offered meal Jessy " +
+                    "ran " + getAdverb() + "To the closet bathroom, and found " + getNoun2() + "In her surprise " +
+                    getRandomNums() + "Ninja's from the hidden lava village attacked " + getAdjective2() + "She used her ninja Jutsu to defeat them " +
+                    getNoun3() + ".";
+        }else{
+            story = "Your fast asleep when at midnight, Naruto brusts through your window of your bedroom yelling " + getName() +
+                    "you need to get the " + getNoun1() + " before the moon sets!! " + " Suddenly the " + getNoun2() + " broke into pieces " +
+                    "Naruto jumps " + getAdverb() + "Over the " + getNoun3() + " Which melted " + getAdjective2() + " into the floor." + getRandomNums()
+                    + " of the pieces " + getAdjective2() + " in the moon light which triggered " + getName() + " hidden power activated and sealed the " + getNoun1();
+        }
         setStory(story);
     }
 
@@ -174,7 +175,6 @@ public class MadLibs {
         enterNoun2();
         enterAdverb();
         enterNoun3();
-        setRandomNums();
         putTogetherStory();
         System.out.println(getStory());
     }
@@ -182,7 +182,6 @@ public class MadLibs {
     public static void main(String[] args) {
         MadLibs game = new MadLibs();
         game.printInstructions();
-        game.play();
 
     }
 }
